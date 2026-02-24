@@ -13,7 +13,6 @@ declare global {
 		}
 
 		interface Locals {
-			db: DB;
 			user?: User;
 			session?: Session;
 		}

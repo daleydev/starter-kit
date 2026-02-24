@@ -2,10 +2,8 @@ import type { Handle } from '@sveltejs/kit';
 import { building } from '$app/environment';
 import { auth } from '$lib/server/auth';
 import { svelteKitHandler } from 'better-auth/svelte-kit';
-import { initDatabase } from '$lib/server/db';
 
 const handleBetterAuth: Handle = async ({ event, resolve }) => {
-	event.locals.db = initDatabase(event.platform?.env?.DATABASE_URL);
 	const session = await auth.api.getSession({ headers: event.request.headers });
 
 	if (session) {
