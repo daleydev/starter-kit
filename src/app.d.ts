@@ -1,3 +1,4 @@
+import type { BetterAuth } from '$lib/server/auth';
 import type { DB } from '$lib/server/db';
 import type { User, Session } from 'better-auth/minimal';
 
@@ -13,6 +14,8 @@ declare global {
 		}
 
 		interface Locals {
+			db: DB;
+			auth: BetterAuth;
 			user?: User;
 			session?: Session;
 		}
